@@ -11,7 +11,7 @@ function fun1() {
     for(let i = 0;i<arrOfUserNumb.length;i++){
         a = arrOfUserNumb[i] % 2;
         if (!a) {
-            sum = sum + 1;
+            sum = sum + 1; // sum++
         } 
     }
     return sum;
