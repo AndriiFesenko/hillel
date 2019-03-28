@@ -7,7 +7,6 @@ const obj = {
     };
 
 const objCopy = {} ;
-const newObj = obj;
     for (var key in obj){
         objCopy[key] = obj[key]
     }
