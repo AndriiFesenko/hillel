@@ -22,33 +22,3 @@ obj.adress.city = 'Kyiv';
 console.log(obj, objCopy);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // function fun1() {
-    //     obj.shift()
-    // }
