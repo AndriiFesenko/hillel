@@ -30,7 +30,7 @@ function validateUserNumber(value){
             || value == null
             || value == '' 
             || value > 100
-            || value < 10);
+            || value < 0);
 }
 
 getUserNumber();
