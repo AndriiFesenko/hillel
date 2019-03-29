@@ -14,7 +14,7 @@ function getUserNumber() {
         }
     } else {
         alert('you wrote wrong type. Please type a number from 0 to 100');
-        fun1();
+        getUserNumber();
     }
 }
 
@@ -33,4 +33,4 @@ function validateUserNumber(value){
             || value < 10);
 }
 
-fun1();
+getUserNumber();
