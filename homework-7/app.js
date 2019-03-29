@@ -4,7 +4,7 @@ document.getElementById('firsth1').innerHTML+=userName;
 
 let counter = 0;
 
-function fun1() {
+function getUserNumber() {
     let userNumber = prompt('Type a number from 0 to 100');
     
     if (!validateUserNumber(userNumber)) {
