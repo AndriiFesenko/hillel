@@ -11,6 +11,9 @@ function createElement() {
     
 }
 
+// Узнать почему мы здесь передаем переменную (e) 
+// и где мы ее используем и куда она записывается 
+// при выходе из функции 
 function toggleFunctions(e){
     changeColor(e);
     keyboardEvent(e)
@@ -22,6 +25,9 @@ function changeColor(e) {
                 'red' : 'yellow';
 }
 
+
+// если не указать (e) пишет e is not defined 
+// спросить что такое е и почему e.target 
 function keyboardEvent(e) {
     if(e.altKey) {
         e.target.parentNode.removeChild(e.target);
