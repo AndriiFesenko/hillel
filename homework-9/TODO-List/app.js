@@ -3,10 +3,10 @@ const taskList = document.getElementById('taskList')
 const button = parentDiv.lastElementChild;
 
 parentDiv.addEventListener('keydown', submitKey)
-button.addEventListener('click', AddNewTask);
+button.addEventListener('click', addNewTask);
 
 
-function AddNewTask() {
+function addNewTask() {
     // Создаем новый элемент div
     const div = document.createElement('div');
     
@@ -29,7 +29,7 @@ function AddNewTask() {
 
 function submitKey(e){
     if(e.keyCode == 13) {
-        AddNewTask();
+        addNewTask();
     }
 }
 
