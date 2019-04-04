@@ -25,22 +25,3 @@ function calculator(value) {
 
 const calc = calculator(10);
 
-
-
-
-
-
-
-
-
-
-
-
-
-// console.log(calc.add(45));
-// console.log(calc.sub(45));
-// console.log(calc.divide(5));
-// console.log(calc.mult(5));
-// console.log(calc.set(100));
-// console.log(calc.add(45));
-// console.log(calc.get());
