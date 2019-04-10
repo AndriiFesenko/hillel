@@ -53,6 +53,7 @@ function completePercent(){
         return total + current.marks.length
     }, 0)
     return totalWorks/allWorks*100 + '%';
+    // totalWorks * 100 / allWorks;
 }
 
 
