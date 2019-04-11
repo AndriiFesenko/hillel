@@ -3,38 +3,38 @@
 function Hamburger(size, stuffing) {
     this.size = size;
     this.stuffing = stuffing;
-    this.topping = [];
+    this.toppingArr = [];
 }
 // создаем массив для топпингов которые будем собирать в нем.
 
 // Пушим добавленный топпинг в наш созданный массив
-Hamburger.prototype.addTopping = function (whatTopping) {
-    this.whatTopping = whatTopping; 
-    return this.topping.push(this.whatTopping);
+Hamburger.prototype.addTopping = function (Topping) {
+    this.Topping = Topping; 
+    return this.toppingArr.push(this.Topping);
 }
 
 //Высчитываем калории 
 Hamburger.prototype.calculateCalories = function () {
-    let totalCaloriesOfAllToppings = 0;
+    // let totalCaloriesOfAllToppings = 0; заменили на sum в reduce
     // Перебираем наш созданный массив для топпингов , 
     // чтобы извлечь из каждого нового элемента ключ calories
     // и суммируем все полученные значения из ключа calories и возвращаем 
     // сложение всех значений calories от переданных элементов в наш конструктор
    return this.size.calories 
                 + this.stuffing.calories 
-                + this.topping.reduce((sum, current) => totalCaloriesOfAllToppings +=current.calories ,0);
+                + this.toppingArr.reduce((sum, current) => sum +=current.calories ,0);
 }
 
 // Высчитываем цену
 Hamburger.prototype.calculatePrice = function () {
-    let totalPriceOfAllToppings = 0;
+    // let totalPriceOfAllToppings = 0; заменили на sum в reduce
     //Перебираем наш созданный массив для топпингов
     //чтобы извлечь из каждого элемента ключ price
     //суммируем все полученные значения из ключа price и возвращаем
     // сложение всех значений price от переданных элементов в наш конструктор
     return this.size.price 
                 + this.stuffing.price
-                + this.topping.reduce((sum,current) => totalPriceOfAllToppings += current.price ,0) 
+                + this.toppingArr.reduce((sum,current) => sum += current.price ,0) 
 }
 
 // Создаем обьекты 
