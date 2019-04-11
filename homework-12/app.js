@@ -23,7 +23,6 @@ Hamburger.prototype.calculateCalories = function () {
                 + this.stuffing.calories 
                 + this.toppingArr.reduce((sum, current) => sum + current.calories ,0);
 }
-
 // Высчитываем цену
 Hamburger.prototype.calculatePrice = function () {
     // let totalPriceOfAllToppings = 0; заменили на sum в reduce
