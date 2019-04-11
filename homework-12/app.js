@@ -1,11 +1,12 @@
 "use strict"
 
-function Hamburger(whatSize, whatStuffing) {
-    this.whatSize = whatSize;
-    this.whatStuffing = whatStuffing;
+function Hamburger(size, stuffing) {
+    this.size = size;
+    this.stuffing = stuffing;
+    this.topping = [];
 }
 // создаем массив для топпингов которые будем собирать в нем.
-Hamburger.prototype.topping = [];
+
 // Пушим добавленный топпинг в наш созданный массив
 Hamburger.prototype.addTopping = function (whatTopping) {
     this.whatTopping = whatTopping; 
@@ -18,14 +19,10 @@ Hamburger.prototype.calculateCalories = function () {
     // Перебираем наш созданный массив для топпингов , 
     // чтобы извлечь из каждого нового элемента ключ calories
     // и суммируем все полученные значения из ключа calories и возвращаем 
-    this.topping.forEach(function(item){
-        totalCaloriesOfAllToppings += item.calories
-         return totalCaloriesOfAllToppings;
-    })
     // сложение всех значений calories от переданных элементов в наш конструктор
-   return this.whatSize.calories 
-                + this.whatStuffing.calories 
-                + totalCaloriesOfAllToppings;
+   return this.size.calories 
+                + this.stuffing.calories 
+                + this.topping.reduce((sum, current) => totalCaloriesOfAllToppings +=current.calories ,0);
 }
 
 // Высчитываем цену
@@ -34,14 +31,10 @@ Hamburger.prototype.calculatePrice = function () {
     //Перебираем наш созданный массив для топпингов
     //чтобы извлечь из каждого элемента ключ price
     //суммируем все полученные значения из ключа price и возвращаем
-    this.topping.forEach(function (item){
-        totalPriceOfAllToppings = totalPriceOfAllToppings + item.price
-            return totalPriceOfAllToppings;
-    })
     // сложение всех значений price от переданных элементов в наш конструктор
-    return this.whatSize.price 
-                + totalPriceOfAllToppings 
-                + this.whatStuffing.price;
+    return this.size.price 
+                + this.stuffing.price
+                + this.topping.reduce((sum,current) => totalPriceOfAllToppings += current.price ,0) 
 }
 
 // Создаем обьекты 
