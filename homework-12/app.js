@@ -8,9 +8,8 @@ function Hamburger(size, stuffing) {
 // создаем массив для топпингов которые будем собирать в нем.
 
 // Пушим добавленный топпинг в наш созданный массив
-Hamburger.prototype.addTopping = function (Topping) {
-    this.Topping = Topping; 
-    return this.toppingArr.push(this.Topping);
+Hamburger.prototype.addTopping = function (topping) {
+    return this.toppingArr.push(topping);
 }
 
 //Высчитываем калории 
@@ -22,7 +21,7 @@ Hamburger.prototype.calculateCalories = function () {
     // сложение всех значений calories от переданных элементов в наш конструктор
    return this.size.calories 
                 + this.stuffing.calories 
-                + this.toppingArr.reduce((sum, current) => sum +=current.calories ,0);
+                + this.toppingArr.reduce((sum, current) => sum + current.calories ,0);
 }
 
 // Высчитываем цену
@@ -34,7 +33,7 @@ Hamburger.prototype.calculatePrice = function () {
     // сложение всех значений price от переданных элементов в наш конструктор
     return this.size.price 
                 + this.stuffing.price
-                + this.toppingArr.reduce((sum,current) => sum += current.price ,0) 
+                + this.toppingArr.reduce((sum,current) => sum + current.price ,0) 
 }
 
 // Создаем обьекты 
