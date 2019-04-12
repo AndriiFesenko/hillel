@@ -1,0 +1,32 @@
+.accordeon-heading {
+    background-color: crimson;
+    width: 50vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.accordeon-body {
+    transition: height 3s, background-color 3s;
+    display: block;
+    height: 0px;
+    width: 50vw;
+    color:rgba(255,255,255,0)
+}
+.accordeon-body-showed {
+    transition: height 3s, color 2s;
+    background-color: yellow;
+    width: 50vw;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:black;
+}
+#container {
+    display: block;
+    background: black;
+    height: 100vh;
+    width: 100vw;
+}
