@@ -1,0 +1,54 @@
+#container {
+    height: 450px;
+    width: 500px;
+    display: flex;
+    position: relative;
+}
+#container > li:first-of-type{
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#container > li.showed {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+#container > li {
+    display: none;
+}
+#container > li > img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+#container > input {
+    height: 100%;
+    width: 10%;
+    background-color: rgba(255,255,255,0);
+    border: none;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    color: darksilver;
+    z-index: 2;
+}
+#container > input:hover {
+    color: lightgrey;
+    background-color: rgba(0,0,0,0.2);
+}
+#container > input:first-of-type {
+    top: 0px;
+    left: 0px;
+}
+#container > input:last-of-type {
+    top: 0px;
+    right: 0px;
+}
