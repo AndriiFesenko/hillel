@@ -4,30 +4,28 @@ class Gallery {
         this.el = el;
         this.config = config;
         this.li = this.el.querySelectorAll('li');
+        this.li[0].classList.add('showed');
         this.el.addEventListener('click', this.changeImg.bind(this));
         
     }
     addButton(){
         //------add left button------
         this.leftButton = document.createElement('input');
-        this.el.insertBefore(this.leftButton, this.el.querySelector('li'))
         this.leftButton.setAttribute('value', 'Prev');
         this.leftButton.setAttribute('class', 'prev');
         this.leftButton.setAttribute('type', 'button');
+        this.el.insertBefore(this.leftButton, this.el.querySelector('li'));
         //--------add right button------
         this.rightButton = document.createElement('input');
-        this.el.appendChild(this.rightButton);
         this.rightButton.setAttribute('value', 'Next');
         this.rightButton.setAttribute('class', 'next');
         this.rightButton.setAttribute('type', 'button');
-
+        this.el.appendChild(this.rightButton);
     }
     changeImg(e) {
+        //при клике убираем автопереключение картинки
         clearInterval(this.timerId)
         this.checkButtonValue(e);
-    }
-    addFirstIndex() {
-        this.li[0].classList.add('showed');
     }
     checkButtonValue(e) {
         let value = e.target.getAttribute('value');
@@ -80,7 +78,6 @@ const myGallery = new Gallery(document.getElementById('container'),
                                 { delay: 1000}
                                 )
 
-myGallery.addFirstIndex();
 myGallery.addButton();
 myGallery.interval();
 
