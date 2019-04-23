@@ -1,0 +1,40 @@
+.tabset-container { 
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    margin: 10px auto;
+    width: 50vw;
+    height: auto;
+    position: relative;
+}
+.tabset-container  .tabset-element.hide .tabset-body {
+    display: none;
+}
+.tabset-container  .tabset-element.show .tabset-body {
+    display: flex;
+    position: absolute;
+    width: 50vw;
+    justify-content: flex-start;
+    left: 0px;
+    border-top: none;
+    background-color: rgba(0,0,0,0.03);
+    box-shadow: 0px 1px 3px black;
+}
+.tabset-container .tabset-heading {
+    height: 50px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tabset-container  .tabset-element.show .tabset-heading{
+    box-shadow: 0px -2px 3px black;
+    border-bottom: none;
+    background-color: rgba(0,0,0,0.03)
+}
+.tabset-container .tabset-heading:hover {
+    cursor: pointer;
+}
+.tabset-container .tabset-body {
+    text-align: center;
+}
