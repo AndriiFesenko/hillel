@@ -7,7 +7,7 @@
     height: auto;
     position: relative;
 }
-.tabset-container  .tabset-element.hide .tabset-body {
+.tabset-container  .tabset-element .tabset-body {
     display: none;
 }
 .tabset-container  .tabset-element.show .tabset-body {
@@ -22,10 +22,12 @@
 }
 .tabset-container .tabset-heading {
     height: 50px;
-    width: 100px;
+    width: auto;
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 .tabset-container  .tabset-element.show .tabset-heading{
     box-shadow: 0px -2px 3px black;

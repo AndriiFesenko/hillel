@@ -4,7 +4,7 @@ class Tabset{
     
     constructor (container){
         this.container = container;
-        this.tabsetElement = this.container.getElementsByClassName(Tabset.TABSET_ELEMENT);
+        this.tabsetElements = this.container.getElementsByClassName(Tabset.TABSET_ELEMENT);
         this.container.addEventListener('click', this.showElementByClick.bind(this));
         this.init();
     }
@@ -14,49 +14,46 @@ class Tabset{
     }
     showElementByClick(e){
         if(e.target.parentNode.classList.contains('tabset-element')){
-            this.hideElemetns();
+            this.hideElements();
             e.target.parentNode.classList.add('show');
         }
     }
-    hideElemetns() {
-        this.changeClass(this.tabsetElement);
+    hideElements() {
+        this.hideThisElement();
     }
-    changeClass(element){
-        for(let i=0; i<element.length; i++){
-            element[i].classList.add('hide');
-            element[i].classList.remove('show');
+    hideThisElement(){
+        for(let i=0; i<this.tabsetElements.length; i++){
+            this.tabsetElements[i].classList.remove('show');
         }
     }
     show(index){
-        this.hideElemetns();
-        this.tabsetElement[index].classList.add('show');
+        if(index === undefined){
+            if(this.index === this.tabsetElements.length - 1){
+                this.show(0);
+            }
+            if(this.tabsetElements[this.index].classList.contains('show')){
+                this.tabsetElements[this.index+1].classList.add('show');
+                this.tabsetElements[this.index].classList.remove('show');
+            }
+        } else {
+            this.hideElements();
+            this.tabsetElements[index].classList.add('show');
+        }
     }
     next(){
         this.setIndex();
-        this.nextElement(this.tabsetElement);
+        this.show();
     }
     setIndex(){
-        this.setIndexForElement(this.tabsetElement); 
-    }
-    setIndexForElement(element){
-        let index;
-        for(let i=0; i<element.length; i++){
-            if(element[i].classList.contains('show')){
-                index = i;
-                this.index = index;
+        let element = this.tabsetElements;
+        let indexOfElement;
+        Array.from(element).reduce(function(previous,current,index,arr){
+            if(element[index].classList.contains('show')){
+                return indexOfElement = index;
             }
-        }
+        }, 0);
+        this.index = indexOfElement;
     }
-    nextElement(element){
-        if(this.index === element.length - 1){
-            this.show(0);
-        }
-        if(element[this.index].classList.contains('show')){
-            element[this.index+1].classList.add('show');
-            element[this.index].classList.remove('show');
-        }
-    
-}
 }
 
 const tabs = new Tabset(
