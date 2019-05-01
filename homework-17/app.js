@@ -11,14 +11,14 @@ class Users {
         request('get', this.URL, (usersInfo) => this.showInfo(usersInfo));
     }
     showInfo(usersInfo){
-        for(let i=0; i<usersInfo.length; i++){
+        usersInfo.reduce(function(sum, current,index,array){
             let contactTr = document.createElement('tr');
             contactTr.innerHTML = this.userTemplate
-                                    .replace('{{name}}', usersInfo[i].name)
-                                    .replace('{{phone}}', usersInfo[i].phone)
-                                    .replace('{{email}}', usersInfo[i].email)                
-            this.tBody.appendChild(contactTr)
-        }
+                                    .replace('{{name}}', current.name)
+                                    .replace('{{phone}}', current.phone)
+                                    .replace('{{email}}', current.email)                
+            this.tBody.appendChild(contactTr);
+        }.bind(this))
     }
 }
 var request = function(){
