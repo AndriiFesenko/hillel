@@ -1,24 +1,23 @@
 'use strict'
 class Users {
-    constructor(){
-        this.userListTable = document.getElementById('userListTable')
+    static URL = 'https://jsonplaceholder.typicode.com/users';
+    constructor(userListTable){
         this.userTemplate = document.getElementById('userTemplate').innerHTML;
-        this.tBody = this.userListTable.lastElementChild;
-        this.URL = 'https://jsonplaceholder.typicode.com/users';
+        this.tBody = userListTable.lastElementChild;
         this.init();
     }
     init(){
-        request('get', this.URL, (usersInfo) => this.showInfo(usersInfo));
+        request('get', Users.URL, (usersInfo) => this.showInfo(usersInfo));
     }
     showInfo(usersInfo){
-        usersInfo.reduce(function(sum, current,index,array){
+        usersInfo.forEach((current) => {
             let contactTr = document.createElement('tr');
             contactTr.innerHTML = this.userTemplate
-                                    .replace('{{name}}', current.name)
-                                    .replace('{{phone}}', current.phone)
-                                    .replace('{{email}}', current.email)                
-            this.tBody.appendChild(contactTr);
-        }.bind(this))
+                            .replace('{{name}}', current.name)
+                            .replace('{{phone}}', current.phone)
+                            .replace('{{email}}', current.email)
+            this.tBody.appendChild(contactTr)
+        })
     }
 }
 var request = function(){
@@ -35,4 +34,4 @@ var request = function(){
 
 
 
-const userList = new Users(document.getElementById('usersListTable'));
+const userList = new Users(document.getElementById('userListTable'));
