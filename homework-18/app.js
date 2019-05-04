@@ -6,15 +6,15 @@ class Users {
     static ALBUMS_PATH = '/albums';
     constructor(userListTable){
         this.userListTable = userListTable;
+        this.init();
+    }
+    init(){
         this.userTemplate = document.getElementById('userTemplate').innerHTML;
         this.userPosts = document.getElementById('userPosts');
         this.userAlbums = document.getElementById('userAlbums')
-        this.tBody = userListTable.lastElementChild;
-        this.init();
-        this.tBody.addEventListener('click', (e) => this.onBodyClick(e));
-    }
-    init(){
+        this.tBody = this.userListTable.lastElementChild;
         this.usersInfoRequest();
+        this.tBody.addEventListener('click', (e) => this.onBodyClick(e));
     }
     usersInfoRequest(){
         const setUserInfo = this.request('get', Users.BASE_URL + Users.USERS_PATH);
@@ -23,22 +23,24 @@ class Users {
     onBodyClick(e){
         this.userId = e.target.parentNode.dataset.userId;
         this.name = e.target.parentNode.firstElementChild.innerHTML;
+        this.sendRequest();
+    }
+    sendRequest(){
         const setUserPosts = this.request('get', Users.BASE_URL + Users.POSTS_PATH);
         setUserPosts.then((userPosts) => {
             this.showElement(userPosts, this.userPosts, ' Posts')
-        });
-        const setUserAlbums = this.request('get', Users.BASE_URL + Users.ALBUMS_PATH);
-        setUserAlbums.then((userAlbums) => {
+        }).then(() => this.request('get', Users.BASE_URL + Users.ALBUMS_PATH))
+          .then((userAlbums) => {
             this.showElement(userAlbums, this.userAlbums, ' Albums')
-        });
+        })
     }
     showElement(element, container, type){
-        const name = this.name
-        container.innerHTML = name + type + element.map((element) => {
-            if(element.userId == this.userId) {
-                return container.innerHTML = '<li>' + element.title + '</li>';
+        const usersTitles = this.name + type + element.map((user) => {
+            if(user.userId == this.userId) {
+                return '<li>' + user.title + '</li>';
             }
         }).join('')
+        container.innerHTML = usersTitles;
     }
     request(method, url, body = null){
         return new Promise((resolve, reject) => {
