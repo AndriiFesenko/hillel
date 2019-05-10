@@ -1,0 +1,13 @@
+#taskList  .true {
+    background-color: green;
+}
+#taskList  .false {
+    background-color: lightgrey;
+}
+#taskList > tbody input {
+    background-color: yellow;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

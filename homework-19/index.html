@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="sceleton.css">
     <link rel="stylesheet" href="style.css">
     <script src="./app.js" async></script>
-    <title>Todo list</title>
+    <title>Users list</title>
 </head>
 <body>
     <div class="container">
@@ -23,7 +23,7 @@
             </thead>
             <tbody></tbody>
         </table>
-        <form id="addNewUser">
+        <form id="addNewUserForm">
             <div class="row">
                 <div class="u-full-width">
                     <label for="name">name</label>
@@ -47,6 +47,7 @@
             <td>{{surname}}</td>
             <td>{{email}}</td>
             <td>{{phone}}</td>
+            <td><input type="button" value="delete"></td>
         </tr>
     </script>
 </body>
