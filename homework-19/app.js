@@ -36,12 +36,12 @@
                 } else {
                     current.is_active = true
                 }
-                changeActiveClass(CONTACTS_URL + '/' + id, current)
+                setNewChanges(CONTACTS_URL + '/' + id, current)
                 .then(() => getUserList(CONTACTS_URL))
             }
         })
     }
-    function changeActiveClass(url, element){
+    function setNewChanges(url, element){
         return fetch(url, {
             method: 'PUT',
             body: JSON.stringify(element),
