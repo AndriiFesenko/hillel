@@ -1,10 +1,10 @@
 'use strict'
     const CONTACTS_URL = 'http://fep-app.herokuapp.com/api/contacts';
 
-    const taskList = document.getElementById('taskList');
+    const userList = document.getElementById('userList');
     const addNewUserForm = document.getElementById('addNewUserForm');
     const userTemplate = document.getElementById('userTemplate').innerHTML;
-    const tBody = taskList.getElementsByTagName('tbody')[0];
+    const tBody = userList.getElementsByTagName('tbody')[0];
     const contactName = document.getElementById('name');
     const contactSurname = document.getElementById('surname');
     const contactEmail = document.getElementById('email');
@@ -61,8 +61,8 @@
         users = data;
         return users;
     }
-    function renderUsers(user) {
-        const userList = user.map((current) => {
+    function renderUsers(usersInfoList) {
+        const setUsers = usersInfoList.map((current) => {
             return userTemplate
                         .replace('{{id}}', current.id)
                         .replace('{{name}}', current.name)
@@ -71,14 +71,10 @@
                         .replace('{{phone}}', current.phone)
                         .replace('{{class}}', current.is_active ? true : false)
         }).join('\n')
-        tBody.innerHTML = userList;
+        tBody.innerHTML = setUsers;
     }
     function submitForm(event){
         event.preventDefault();
-        addUser();
-        resetForm();
-   }
-   function addUser() {
         const newUser = {
             name: contactName.value,
             surname: contactSurname.value,
@@ -86,6 +82,10 @@
             phone: contactPhone.value,
             is_active: true
         };
+        addUser(newUser);
+        resetForm();
+   }
+   function addUser(newUser) {
             addUserOnServer(CONTACTS_URL, newUser)
             .then(() => getUserList(CONTACTS_URL))
     }
