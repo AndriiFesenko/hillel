@@ -1,0 +1,37 @@
+
+#addNewUserForm > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+
+#userList > tbody input  {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ .pop-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.5);
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.pop-container .pop-context {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px;
+    width: 400px;
+    background: lightgrey;
+    box-shadow: 0px 0px 7px 3px rgba(0,0,0,0.41);
+    padding: 0px 10px;
+}
+.pop-container .pop-context li {
+    list-style: none;
+}
