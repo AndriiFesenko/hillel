@@ -9,7 +9,8 @@
     const contactSurname = document.getElementById('surname');
     const contactEmail = document.getElementById('email');
     const contactPhone = document.getElementById('phone');
-
+    const popup = document.getElementById('popup').innerHTML;
+    
     let users = [];
 
     init();
@@ -20,7 +21,7 @@
         tBody.addEventListener('click', onClick);
         userList.parentNode.addEventListener('click', (e) => {
             if(e.target.className == 'pop-container'){
-                e.target.remove();
+                e.target.parentNode.remove();
             }
         })
     }
@@ -28,13 +29,13 @@
     function onClick(e){
         const id = e.target.parentNode.dataset.userId;
         if(e.target.parentNode.parentNode == tBody) {
-            getInfoAboutUser(CONTACTS_URL + '/' + id)
+            getInfoAboutUser(CONTACTS_URL + '/' + id, e)
         } else if (e.target.value == 'delete'){
             deletUser(e);
         } else if (e.target.value == 'edit') {
             edit(e);
         } else if (e.target.value == 'save') {
-            save(e);
+            save(e, e.target.parentNode.parentNode.dataset.userId);
         }
     }
 
@@ -56,45 +57,38 @@
             }
         })
     }
-    function save(e){
+    function save(e, id){
         e.preventDefault();
-        const id = e.target.parentNode.parentNode.dataset.userId
-        const element = e.target.parentNode.parentNode.children;
+        const element = e.target.parentNode.parentNode;
+        const input = element.getElementsByTagName('input')
         const url = CONTACTS_URL + '/' + id;
-        users.forEach((current) => {
-            if(current.id == id){
-                current.name = element[0].children[0].value;
-                current.surname = element[1].children[0].value;
-                current.email = element[2].children[0].value;
-                current.phone = element[3].children[0].value;
+        users.find((current) => {
+            if(current.id === id){
+                current.name = input[0].value;
+                current.surname = input[1].value;
+                current.email = input[2].value;
+                current.phone = input[3].value;
                 changeInfo(url, current)
                 .then(() => getUserList(CONTACTS_URL))
-            } 
+            }
         })
     }
 
-    function getInfoAboutUser(url){
+    function getInfoAboutUser(url, e){
         return fetch(url, {method: 'GET'})
                 .then((resp) => resp.json())
-                .then((showUser))
+                .then((userInfo) => showUser(userInfo, e))
     }
-    function showUser(userInfo){
-        const div = document.createElement('div');
-        const ul = document.createElement('ul');
-        div.setAttribute('class', 'pop-container');
-        ul.setAttribute('class', 'pop-context');
-        userList.parentNode.appendChild(div);
-        div.appendChild(ul)
 
-        for(let key in userInfo){
-            if(key == 'id' || key == 'is_active'){
-                
-            } else {
-                const li = document.createElement('li')
-                li.innerHTML = key + ': ' + userInfo[key]
-                ul.appendChild(li)
-            }
-        }
+    function showUser(userInfo, e){
+        const div = document.createElement('div');
+        const infoInPopup = popup
+                            .replace('{{name}}', userInfo.name)
+                            .replace('{{surname}}', userInfo.surname)
+                            .replace('{{email}}', userInfo.email)
+                            .replace('{{phone}}', userInfo.phone)
+        div.innerHTML = infoInPopup;
+        userList.parentNode.appendChild(div)
     }
 
     function changeInfo(url, element){
@@ -114,8 +108,7 @@
                 .then(renderUsers)
     }
     function setUsers(data){
-        users = data;
-        return users;
+        return users = data
     }
     function renderUsers(user) {
         const userList = user.map((current) => {
