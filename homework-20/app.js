@@ -62,16 +62,15 @@
         const element = e.target.parentNode.parentNode;
         const input = element.getElementsByTagName('input')
         const url = CONTACTS_URL + '/' + id;
-        users.find((current) => {
-            if(current.id === id){
-                current.name = input[0].value;
-                current.surname = input[1].value;
-                current.email = input[2].value;
-                current.phone = input[3].value;
-                changeInfo(url, current)
-                .then(() => getUserList(CONTACTS_URL))
-            }
-        })
+        const currentUser = users.find((current) => current.id === id)
+
+        currentUser.name = input[0].value;
+        currentUser.surname = input[1].value;
+        currentUser.email = input[2].value;
+        currentUser.phone = input[3].value;
+
+        changeInfo(url, currentUser)
+        .then(() => getUserList(CONTACTS_URL))
     }
 
     function getInfoAboutUser(url, e){
