@@ -1,0 +1,105 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+header {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    background: rgb(5, 5, 122);
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+header input {
+    padding: 5px 20px;
+    height: auto;
+    width: auto;
+    background-color: rgb(5, 5, 122);
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    margin-right: 20px;
+}
+.wrapper {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.5);
+}
+.wrapper .container{
+    height: auto;
+    width: auto;
+    background: rgb(5, 5, 122);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 20px;
+}
+.wrapper .container input {
+    margin-bottom: 20px;
+    padding: 5px;
+    font-size: 1.5em;
+}
+.wrapper .container textarea {
+    resize: none;
+    padding: 5px;
+    font-size: 1.5em;
+}
+.wrapper .container .wrap{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+.wrapper .container .save {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding: 5px 15px;
+    font-size: 1em;
+    background-color: rgb(5, 5, 122);
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    width: auto;
+}
+.wrapper .container .cancel {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding: 5px 15px;
+    font-size: 1em;
+    background-color: rgb(5, 5, 122);
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    width: auto;
+}
+.new-task-wrapper {
+    display: flex;
+    flex-direction: column;
+    word-break: break-all;
+    padding: 5px;
+    height: 200px;
+    width: 200px;
+    background-color: rgb(240, 240, 17);
+    box-shadow: 1px 14px 26px -1px rgba(8,10,150,1);
+    margin: 10px;
+    list-style: none;
+    text-align: center;
+}
+.new-task-wrapper li:first-of-type {
+    font-size: 1.5em;
+}
+.new-task-wrapper li:nth-of-type(2){
+    font-size: 1em;
+}
+.article {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+}
