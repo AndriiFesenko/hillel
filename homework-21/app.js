@@ -3,42 +3,52 @@
 $(document).ready(showLocalStorage())
 
 
-let $newTask = $('#newTask').html();
-const $modal = $('#modalWindow').html();
+const modal = $('#modalWindow').html();
+const $addNewTask = $('#addNewTask');
+const $article = $('.article');
 
 
-$('header input').click(function(){
-    $('div').append($modal)
-    $('.container').fadeIn('slow')
+
+$addNewTask.on('click', function(){
+    $article.append(modal);
+
+    const $container = $('.container');
+    const $saveButton = $('.saveButton');
+    const $cancelButton = $('.cancelButton');
+    const $taskForm = $('#taskForm');
+    const $titleInput = $container.find('input');
+    const $textArea = $container.find('textarea');
+
+    $container.fadeIn('slow');
     
-    $('.save').click(function(){
-        saveTask();
-        $('.article .wrapper').remove();
+    $saveButton.on('click', function(){
+        saveTask($titleInput, $textArea);
+        $taskForm.remove();
         
     })
-    $('.cancel').click(function(){
-        cancelTask();
+    $cancelButton.on('click', function(){
+        cancelTask($taskForm);
     })
 })
 
-function saveTask(){
+function saveTask($titleInput, $textArea){
     const key = 'task' + Date.now();
-    const $newTitle = $('.container input').val();
-    const $newText = $('.container textarea').val();
+    const newTitle = $titleInput.val();
+    const newText = $textArea.val();
 
-    $newTask = $('#newTask').html()
-                            .replace('{{Title}}', $newTitle)
-                            .replace('{{Description}}', $newText)
+    const newTask = $('#newTask').html()
+                            .replace('{{Title}}', newTitle)
+                            .replace('{{Description}}', newText)
                             
-    appendElement('.article',$newTask)
-    localStorage.setItem(key,$newTask)
+    appendElement('.article',newTask)
+    localStorage.setItem(key,newTask)
 }
 
 function appendElement(route, element){
     $(route).append(element);
 }
-function cancelTask(){
-    $('.wrapper').remove();
+function cancelTask($taskForm){
+    $taskForm.remove();
 }
 function showLocalStorage(){
     for(let i=0; i<localStorage.length; i++){
