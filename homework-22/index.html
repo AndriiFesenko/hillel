@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="sceleton.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js" defer></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" defer></script>
+    <script src="./app.js" defer></script>
+    <title>Users list</title>
+</head>
+<body>
+    <div class="container">
+        <table id="userList" class="u-full-width user-list">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>surname</th>
+                    <th>email</th>
+                    <th>phone</th>
+                    <th><input type="button" value="ADD NEW USER"></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="popup">
+                <div class="popup-form-wrapper">
+                    <form>
+                            <img src="http://www.iconninja.com/files/522/978/507/delete-cancel-remove-cross-icon.svg" id="closeForm">
+                            <input type="text" id="name" placeholder="type a name">
+                            <input type="text" id="surname" placeholder="type a surname">
+                            <input type="text" id="email"  placeholder="myemail@gmail.com">
+                            <input type="text" id="phone" placeholder="+380">
+                    </form>
+                    <input type="submit"  value="add" id="submitUser">
+                </div>
+            </div>
+    </div>
+    <script type="text/template" id="userTemplate">
+        <tr data-user-id="{{id}}" class="user-item u-full-width {{class}}">
+            <td>{{name}}</td>
+            <td>{{surname}}</td>
+            <td>{{email}}</td>
+            <td>{{phone}}</td>
+            <td><input type="button" value="delete"></td>
+            <td><input type="button" value="edit" id="edit"></td>
+        </tr>
+    </script>
+    <script type="text/template" id="userInfoInPopup">
+        <div class="pop-container">
+            <ul class="pop-context">
+                <li>Name: {{name}}</li>
+                <li>Surname: {{surname}}</li>
+                <li>Email: {{email}}</li>
+                <li>Phone: {{phone}}</li>
+            </ul>
+        </div>
+    </script>
+</body>
+</html>
