@@ -1,4 +1,11 @@
 {
-    "name" : "file",
-    "main" : "./index"
-  }
+  "name": "main",
+  "version": "1.0.0",
+  "description": "calculator",
+  "main": "./index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fesenko Andrii",
+  "license": "ISC"
+}
