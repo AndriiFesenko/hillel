@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js" defer></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" defer></script>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="sceleton.css">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+        <div class="ui-widget">
+            <input id="tags" placeholder="Search for user">
+        </div>
+        <script type="text/template" id="userInfo">
+            <div class="container">
+                <div class="wrapperMainInfo">
+                    <img src="{{img}}" alt="userIcon">
+                    <h2>{{Name}}</h2>
+                    <a href="{{src}}">({{srcName}})</a>
+                </div>
+                <div class="wrapperCommonInfo">
+                    <div>
+                        <h2>{{reposAmount}}</h2>
+                        <p>Repositories</p>
+                    </div>
+                    <div>
+                        <h2>{{folowersAmount}}</h2>
+                        <p>Folowers</p>
+                    </div>
+                    <div>
+                        <h2>{{regDate}}</h2>
+                        <p>Registration</p>
+                    </div>
+                </div>
+            </div>
+        </script>
+</body>
+</html>
