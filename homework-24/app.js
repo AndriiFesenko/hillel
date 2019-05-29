@@ -1,7 +1,5 @@
 'use strict'
 
-
-
 $( function() {
     const $uiWidget = $('.ui-widget');
     $(document)
@@ -62,34 +60,26 @@ $( function() {
         })
     }
     function fetchUser(data){
-        const dataArray = $.makeArray(data)
-        const gotUser = dataArray.map((current) => {
-            let date = changeDate(current);
-            let myUrl = changeUrl(current.html_url)
-            return template
-                        .replace('{{img}}', current.avatar_url)
-                        .replace('{{Name}}', current.name)
-                        .replace('{{src}}', current.html_url)
-                        .replace('{{srcName}}', myUrl)
-                        .replace('{{reposAmount}}', current.public_repos)
-                        .replace('{{folowersAmount}}', current.followers)
-                        .replace('{{regDate}}', date)
-        })
-        $userContactInfo.append(gotUser);
+        let date = changeDate(data);
+        let myUrl = changeUrl(data.html_url)
+        $userContactInfo.html(template
+                            .replace('{{img}}', data.avatar_url)
+                            .replace('{{Name}}', data.name)
+                            .replace('{{src}}', data.html_url)
+                            .replace('{{srcName}}', myUrl)
+                            .replace('{{reposAmount}}', data.public_repos)
+                            .replace('{{folowersAmount}}', data.followers)
+                            .replace('{{regDate}}', date)
+                            )
     }
     function changeUrl(url) {
-        console.log(url);
         let arr = url.split('/');
         return arr[3]
     }
 
     function changeDate(current){
-        let splitedDate = current.created_at.split('-', 3);
-        let month = splitedDate[2].slice(0,2);
-        let yearAndDate = splitedDate.slice(0,2);
-        let date = yearAndDate.concat(month)
-        date.reverse();
-        let newDate = date.join('-');
-        return newDate;
+            let date = new Date(current.created_at);
+            return date.getDate()+'-'+ date.getMonth()+'-'+date.getFullYear();
     }
 } );
+
