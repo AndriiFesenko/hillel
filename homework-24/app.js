@@ -2,6 +2,7 @@
 
 $( function() {
     const $uiWidget = $('.ui-widget');
+    
     $(document)
         .ready(($uiWidget.parent())
         .append($('<div id="userContactInfo"></div>')))
@@ -9,10 +10,9 @@ $( function() {
     const $input = $('#tags');
     const USERS_URL = 'https://api.github.com/search/users?q=';
     const USERS_DATA = 'https://api.github.com/users/';
+
     const template = document.getElementById('userInfo').innerHTML;
-    const $ul = $('#ui-id-1');
     const $userContactInfo = $('#userContactInfo');
-    let availableTags = [];
 
     
     
@@ -24,31 +24,36 @@ $( function() {
             $.ajax({
                 type: "GET",
                 url: USERS_URL + $input.val(),
-                success: function(data){
-                    saveData(data);
+                success: function(){
                     show();
                 }
             })
         }
     })
     
-    function saveData(data){
-        data = data.items.map((current) =>{
-            return current.login
-        })
-        return availableTags = data;
-    }
-    
     function show(){
-            $input.autocomplete({
-            source: availableTags
-        });
-            const $ul = $('#ui-id-1')
-            $ul.on('click', function(e){
-                const userName = $(e.target).html()
-                getInfo(userName, e)
+        $input.autocomplete({
+        minLength: 2,
+        source: function(request, response){
+            $.get(USERS_URL + request.term)
+            .done((data) => {
+                response(getName(data));
+            })
+        }
+    });
+        const $ul = $('#ui-id-1')
+        $ul.on('click', function(e){
+            const userName = $(e.target).html()
+            getInfo(userName, e)
+    })
+}
+
+    function getName(data){
+        return data.items.map((data) => {
+            return data.login
         })
     }
+
     function getInfo(userName, e){
         e.stopImmediatePropagation();
         $.ajax({
