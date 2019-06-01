@@ -5,7 +5,6 @@ import ToDoModel from './model';
 
 export default class ToDoController {
     constructor (url){
-        console.log('controller')
 
         this.collection = new ToDoCollection(config.contactsUrl);
         this.view = new toDoView('tbody');
@@ -33,7 +32,11 @@ export default class ToDoController {
         .then((data) => { return this.view.render(data)})
     }
     getNewInfo(id){
-        this.model.deleteUser(id)
-        this.showUserList();
+        this.model.deleteUser(id).then((data) => {
+            if(data.status === 200){
+                this.showUserList();
+            }
+        });
+        
     }
 }

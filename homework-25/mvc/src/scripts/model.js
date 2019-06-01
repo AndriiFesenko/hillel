@@ -1,5 +1,8 @@
+import { rejects } from "assert";
+
 
 let url = new WeakMap;
+
 export default class ToDoModel{
     get url(){
         return url.get(this)
@@ -10,7 +13,6 @@ export default class ToDoModel{
     constructor(url, data) {
         this.url = url;
         Object.assign(this, data)
-        console.log('model constructor');
     }
 
     save(){
@@ -32,9 +34,11 @@ export default class ToDoModel{
             }
         )
     }
+    
     deleteUser(id){
-        fetch(`${this.url}/${id}`, {
+        let promise = fetch(`${this.url}/${id}`, {
             method: "DELETE"
-        })
+        }).then((response => response))
+        return promise
     }
 }

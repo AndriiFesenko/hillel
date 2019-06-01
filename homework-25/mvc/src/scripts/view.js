@@ -20,7 +20,6 @@ export default class toDoView {
         }
     }
     render(data) {
-        console.log(data)
         let userTemplate = document.getElementById('userTemplate').innerHTML
         let userList = data.map((current) => {
             return userTemplate

@@ -5,7 +5,6 @@ export default class ToDoCollection {
         this.url = url;
         this.list = [];
         this.setData = this.setData.bind(this);
-        console.log('collection', url)
     }
     fetch(){
         return fetch(this.url)
