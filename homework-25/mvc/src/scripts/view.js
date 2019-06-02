@@ -13,8 +13,6 @@ export default class toDoView {
     onElementClick(event) {
         const id = $(event.target).parents('tr').attr('data-user-id');
         console.log(id, $(this))
-        // this.onClick(id);
-        
         if(event.target.value === 'delete'){
             this.onDeleteBttnClick(id)
         }
@@ -30,15 +28,5 @@ export default class toDoView {
                         .replace('{{phone}}', current.phone)
         })
         this.$el.html(userList)
-        // this.$el.html(
-        //     `<ul>
-        //     ${data.map(this.renderItem).join('\n')}
-        //     </ul>`
-        // );
-        // $()
-    }
-
-    renderItem(el){
-        return `<li data-id="${el.id}">${el.name}</li>`
     }
 }
