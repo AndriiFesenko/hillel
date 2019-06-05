@@ -33,7 +33,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Contacts App'
+      title: 'To do list'
     })
   ]
 };

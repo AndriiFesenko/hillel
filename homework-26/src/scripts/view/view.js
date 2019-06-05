@@ -11,7 +11,7 @@ export default class TodoView{
         this.isDone = this.isDone.bind(this);
 
         this.$el.on('click', '.addNewTask-btn', this.onAddNewTaskBtnClick);
-        this.$el.on('click', '#deleteButton', this.onDeleteBtnClick);
+        this.$el.on('click', '.deleteButton', this.onDeleteBtnClick);
         this.$el.on('click', 'li' ,this.isDone);
     }
 
@@ -19,7 +19,6 @@ export default class TodoView{
         this.$el = $(
             `<div id="container-task-list">
                 <div id="tasksList">
-                    <ul></ul>
                 </div>
                 <div class="wrapper-task-input">
                     <input type="text" placeholder="type a task">
@@ -53,25 +52,21 @@ export default class TodoView{
 
     onDeleteBtnClick(event){
         let id = this.getId(event.target);
-        this.taskId(id)
+        this.deleteTaskById(id)
     }
 
     render(data){
-        const item = `<div class="task-wrapper {{isDone}}" data-task-id="{{id}}">
-                        <li>{{task}}</li>
-                        <input type="button" name="delete" id="deleteButton" value="delete">
-                    </div>`;
-        let newList = this.replaceElements(item, data);
-        $('#tasksList ul').html(newList);
+        $('#tasksList').html(
+            data.map(this.replaceElements).join('\n')
+        )
         this.$input.val('');
     }
-
-    replaceElements(item, data){
-        return data.map((current) => {
-            return item
-                        .replace('{{task}}', current.title)
-                        .replace('{{id}}', current.id)
-                        .replace('{{isDone}}', current.isDone)
-        });
+    
+    replaceElements(el){
+        return `<div class="task-wrapper ${el.isDone}" data-task-id="${el.id}">
+                    <li>${el.title}</li>
+                    <input type="button" name="delete" class="deleteButton" value="delete">
+                </div>`;
     }
 }   
+
