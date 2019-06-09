@@ -18,7 +18,7 @@ let intervals = [];
 ctx.fillStyle = 'yellow';
 canvas.style.background = 'green';
 
-window.addEventListener('keydown', (e) => figure(e));
+window.addEventListener('keydown', (e) => checkWay(e));
 colorPicker.addEventListener('change', () => {
     parameters.color = colorPicker.value;
 })
@@ -30,7 +30,7 @@ const parameters = {
     size: 20,
 }
 
-function figure(e){
+function checkWay(e){
 
     myStopFunction(intervals);
     if(e.keyCode === up){
