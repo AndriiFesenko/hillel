@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="app.js" async></script>
+</head>
+<body>
+    <div class="container">
+        <canvas height="500" width="500" id="myCanvas"></canvas>
+        <div class="wrap">
+            <div class="input-wrapper">
+                <input type="range" id="range">
+                <input type="color" id="colorPicker">
+            </div>
+            <div id="status">
+                    <ul></ul>
+            </div>
+        </div>
+        
+    </div>
+    <style>
+        .container{
+            display: flex;
+        }
+        .container .wrap {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+        .container .wrap .input-wrapper  {
+            display: flex;
+        }
+        
+        #status ul li {
+            list-style: none;
+        }
+    </style>
+</body>
+</html>
