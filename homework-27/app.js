@@ -1,9 +1,19 @@
+const DOWN_KEY_CODE = 40;
+const UP_KEY_CODE = 38;
+const LEFT_KEY_CODE = 37;
+const RIGHT_KEY_CODE = 39;
+
 const canvas = document.getElementById('my-canvas');
 const ctx = canvas.getContext('2d');
 const colorPicker = document.getElementById('colorPicker');
 const range = document.getElementById('range');
-fieldWidth = canvas.getAttribute('width');
-fieldHeigth = canvas.getAttribute('height');
+const fieldWidth = canvas.getAttribute('width');
+const fieldHeigth = canvas.getAttribute('height');
+
+const parameters = {
+    color: 'blue',
+    size: 20,
+}
 
 let myParamt = {
     x: 50,
@@ -22,10 +32,6 @@ colorPicker.addEventListener('change', () => {
 range.addEventListener('change', () => {
     parameters.size = range.value;
 })
-const parameters = {
-    color: 'blue',
-    size: 20,
-}
 
 function checkWay(e){
 
@@ -44,20 +50,10 @@ function checkWay(e){
         setAnimation(moveLeft);
     }
 }
-function setAnimation(way){
-    let myInterval = setInterval(way, 50);
-    intervals.push(myInterval);
-}
 function myStopFunction(element){
     for(let i=0; i<element.length; i++){
         clearInterval(element[i]);
     }
-}
-function getColor(){
-    return ctx.fillStyle = parameters.color;
-}
-function getSize(){
-    return size = parameters.size;
 }
 
 function moveUp(){
@@ -98,6 +94,20 @@ function moveLeft(){
         moveOpposite(moveRight)
     }
 }
+
+function setAnimation(way){
+    let myInterval = setInterval(way, 50);
+    intervals.push(myInterval);
+}
+
+function getColor(){
+    return ctx.fillStyle = parameters.color;
+}
+function getSize(){
+    return size = parameters.size;
+}
+
+
 
 function setBallParameters(x, y, ballSize){
     ctx.clearRect(0,0,500,500);
