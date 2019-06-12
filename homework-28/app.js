@@ -1,3 +1,9 @@
+
+const UP_KEY_CODE = 38;
+const RIGT_KEY_CODE = 39;
+const DOWN_KEY_CODE = 40;
+const LEFT_KEY_CODE = 37;
+
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 const colorPicker = document.getElementById('colorPicker');
@@ -11,11 +17,8 @@ let myParamt = {
     x: 50,
     y: 150
 }
-
-const UP_KEY_CODE = 38;
-const RIGT_KEY_CODE = 39;
-const DOWN_KEY_CODE = 40;
-const LEFT_KEY_CODE = 37;
+let fieldStartsX = 0;
+let fieldStartsY = 0;
 
 let arr = [];
 
