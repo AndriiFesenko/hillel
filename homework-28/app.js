@@ -4,8 +4,6 @@ const colorPicker = document.getElementById('colorPicker');
 const range = document.getElementById('range');
 const fieldWidth = canvas.getAttribute('width');
 const fieldHeigth = canvas.getAttribute('height');
-let fieldStartsX = 0;
-let fieldStartsY = 0;
 const ws = new WebSocket('ws://fep-app.herokuapp.com/');
 const status = document.getElementById('status').querySelector('ul')
 
