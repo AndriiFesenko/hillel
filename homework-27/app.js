@@ -5,13 +5,15 @@ const range = document.getElementById('range');
 fieldWidth = canvas.getAttribute('width');
 fieldHeigth = canvas.getAttribute('height');
 
-let x = 50;
-let y = 150;
+let myParamt = {
+    x: 50,
+    y: 150
+}
 
-let down = 40;
-let up = 38;
-let left = 37;
-let right = 39;
+const DOWN_KEY_CODE = 40;
+const UP_KEY_CODE = 38;
+const LEFT_KEY_CODE = 37;
+const RIGHT_KEY_CODE = 39;
 
 let intervals = [];
 
@@ -33,16 +35,16 @@ const parameters = {
 function checkWay(e){
 
     myStopFunction(intervals);
-    if(e.keyCode === up){
+    if(e.keyCode === UP_KEY_CODE){
         moveUp();
         setAnimation(moveUp);
-    } else if (e.keyCode === right) {
+    } else if (e.keyCode === RIGHT_KEY_CODE) {
         moveRight();
         setAnimation(moveRight);
-    } else if (e.keyCode === down){
+    } else if (e.keyCode === DOWN_KEY_CODE){
         moveDown();
         setAnimation(moveDown);
-    } else if (e.keyCode === left) {
+    } else if (e.keyCode === LEFT_KEY_CODE) {
         moveLeft();
         setAnimation(moveLeft);
     }
@@ -66,9 +68,9 @@ function getSize(){
 function moveUp(){
     getColor();
     let ballSize = getSize();
-    y -= 10;
-    setBallParameters(x, y, ballSize);
-    if(y < ((fieldHeigth - fieldHeigth) + ballSize)){
+    myParamt.y -= 10;
+    setBallParameters(myParamt.x, myParamt.y, ballSize);
+    if(myParamt.y < ((fieldHeigth - fieldHeigth) + ballSize)){
         moveOpposite(moveDown)
     }
 }
@@ -76,9 +78,9 @@ function moveUp(){
 function moveRight(){
     getColor();
     let ballSize = getSize();
-    x += 10;
-    setBallParameters(x, y, ballSize);
-    if(x > (fieldWidth - ballSize)) {
+    myParamt.x += 10;
+    setBallParameters(myParamt.x, myParamt.y, ballSize);
+    if(myParamt.x > (fieldWidth - ballSize)) {
         moveOpposite(moveLeft)
     }
 }
@@ -86,18 +88,18 @@ function moveRight(){
 function moveDown(){
     getColor();
     let ballSize = getSize();
-    y +=10;
-    setBallParameters(x, y, ballSize);
-    if(y > (fieldHeigth - ballSize)){
+    myParamt.y +=10;
+    setBallParameters(myParamt.x, myParamt.y, ballSize);
+    if(myParamt.y > (fieldHeigth - ballSize)){
         moveOpposite(moveUp)
     }
 }
 function moveLeft(){
     getColor();
     let ballSize = getSize();
-    x -= 10;
-    setBallParameters(x, y, ballSize);
-    if(x < ((fieldWidth - fieldWidth) + ballSize)) {
+    myParamt.x -= 10;
+    setBallParameters(myParamt.x, myParamt.y, ballSize);
+    if(myParamt.x < ((fieldWidth - fieldWidth) + ballSize)) {
         moveOpposite(moveRight)
     }
 }
