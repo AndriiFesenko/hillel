@@ -10,11 +10,6 @@ let myParamt = {
     y: 150
 }
 
-const DOWN_KEY_CODE = 40;
-const UP_KEY_CODE = 38;
-const LEFT_KEY_CODE = 37;
-const RIGHT_KEY_CODE = 39;
-
 let intervals = [];
 
 ctx.fillStyle = 'yellow';
