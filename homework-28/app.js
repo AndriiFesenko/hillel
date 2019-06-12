@@ -2,18 +2,22 @@ const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 const colorPicker = document.getElementById('colorPicker');
 const range = document.getElementById('range');
-fieldWidth = canvas.getAttribute('width');
-fieldHeigth = canvas.getAttribute('height');
+const fieldWidth = canvas.getAttribute('width');
+const fieldHeigth = canvas.getAttribute('height');
+let fieldStartsX = 0;
+let fieldStartsY = 0;
 const ws = new WebSocket('ws://fep-app.herokuapp.com/');
 const status = document.getElementById('status').querySelector('ul')
 
-let x = 50;
-let y = 150;
+let myParamt = {
+    x: 50,
+    y: 150
+}
 
-const down = 40;
-const up = 38;
-const left = 37;
-const right = 39;
+const UP_KEY_CODE = 38;
+const RIGT_KEY_CODE = 39;
+const DOWN_KEY_CODE = 40;
+const LEFT_KEY_CODE = 37;
 
 let arr = [];
 
@@ -23,7 +27,42 @@ window.addEventListener('keydown', (e) => onButtonPress(e));
 colorPicker.addEventListener('change', () => changeParam());
 range.addEventListener('change', () => changeParam());
 
+ws.onmessage = (e) => getMessage(e);
+
+function onButtonPress(e){
+    if(e.keyCode === UP_KEY_CODE){
+        moveUp();
+    } else if (e.keyCode === RIGT_KEY_CODE) {
+        moveRight();
+    } else if (e.keyCode === DOWN_KEY_CODE){
+        moveDown();
+    } else if (e.keyCode === LEFT_KEY_CODE) {
+        moveLeft();
+    }
+}
+
+function moveUp(){
+    myParamt.y -= 5;
+    sendNewParameters(updateLocation(myParamt.x, myParamt.y))
+}
+
+function moveRight(){
+    myParamt.x += 5;
+    sendNewParameters(updateLocation(myParamt.x, myParamt.y))
+}
+
+function moveDown(){
+    myParamt.y += 5;
+    sendNewParameters(updateLocation(myParamt.x, myParamt.y))
+}
+
+function moveLeft(){
+    myParamt.x -= 5;
+    sendNewParameters(updateLocation(myParamt.x, myParamt.y))
+}
+
 function changeParam(){
+    clearRect(fieldStartsX, fieldStartsY, fieldHeigth, fieldWidth)
     const size = getSize();
     const color = getColor();
     sendNewParameters(updateParametrs(size, color));
@@ -44,47 +83,13 @@ function updateLocation(x, y){
         payload: {x: x, y:y}
     }
 }
-function onButtonPress(e){
-    if(e.keyCode === up){
-        moveUp();
-    } else if (e.keyCode === right) {
-        moveRight();
-    } else if (e.keyCode === down){
-        moveDown();
-    } else if (e.keyCode === left) {
-        moveLeft();
-    }
-    
-}
 
 function getColor(){
-    let color = colorPicker.value;
-    return color;
+    return color = colorPicker.value;
 }
 function getSize(){
-    let size = range.value;
-    return size;
+    return size = range.value;
 }
-function moveUp(){
-    y -= 5;
-    sendNewParameters(updateLocation(x, y))
-}
-
-function moveRight(){
-    x += 5;
-    sendNewParameters(updateLocation(x, y))
-}
-
-function moveDown(){
-    y += 5;
-    sendNewParameters(updateLocation(x, y))
-}
-
-function moveLeft(){
-    x -= 5;
-    sendNewParameters(updateLocation(x, y))
-}
-
 
 function renderBall(element){
     ctx.fillStyle = element.color;
@@ -93,8 +98,6 @@ function renderBall(element){
     ctx.fill();
     ctx.closePath();
 }
-
-ws.onmessage = (e) => getMessage(e);
 
 function getMessage(e) {
     const data = JSON.parse(e.data);
@@ -122,7 +125,7 @@ function createNewBall(data) {
     arr.push(ballParameters);
 }
 function moveBall(data) {
-    clearRect(0, 0, fieldHeigth, fieldWidth)
+    clearRect(fieldStartsX, fieldStartsY, fieldHeigth, fieldWidth)
     let element = findElement(data.ballId);
     element.x = data.payload.x;
     element.y = data.payload.y;
@@ -135,7 +138,7 @@ function setStateBall(data) {
     setNewParameters();
 }
 function removeBall(data) {
-    clearRect(0, 0, fieldHeigth, fieldWidth)
+    clearRect(fieldStartsX, fieldStartsY, fieldHeigth, fieldWidth)
     const index = arr.findIndex((element) => element.id === data.ballId);
     arr.splice(index,1)
     setNewParameters();
