@@ -1,0 +1,635 @@
+
+@font-face {
+    font-family: openSans;
+    src: url("./fonts/OpenSans-Regular.ttf")
+}
+@font-face {
+    font-family: openSansBold;
+    src: url("./fonts/OpenSans-Bold.ttf")
+}
+@font-face {
+    font-family: openSansLight;
+    src: url("./fonts/openSans-Light.ttf")
+}
+
+
+/* --------------- header start */
+
+.wrapper {
+    width: auto;
+}
+.wrapper> header {
+    width: 100%;
+    height: 42px;
+    background-color: #4cb1ca;
+    display: flex;
+    justify-content: space-between;
+    /* 174px cause a::after ,last child ,margin right is 14px */
+    padding: 0px 174px 0px 188px;
+    box-sizing: border-box;
+}
+.wrapper  #site-menu {
+    display: none;
+}
+.wrapper .leb-menu {
+    display: none;
+}
+.wrapper header .wrap {
+    display: flex;
+}
+.wrapper header #language {
+    margin-right: 20px;
+}
+.wrapper header #language span {
+    font-family: openSans;
+    color: #bef2ff;
+    font-size: 13px;
+}
+.wrapper header #language #checkLanguage{
+    font-size: 13px;
+    padding: 0px;
+    margin: 0px;
+    font-family: openSans;
+    color: #ffffff;
+    background-color: rgba(255,255,255,0);
+    border: none;
+}
+.wrapper header #language #checkLanguage option {
+    color: black
+}
+.wrapper header #currency span {
+    font-size: 13px;
+    font-family: openSans;
+    color: #bef2ff;
+}
+.wrapper header #currency #checkCurrency{
+    font-size: 13px;
+    padding: 0px;
+    margin: 0px;
+    font-family: openSans;
+    color: #ffffff;
+    background-color: rgba(255,255,255,0);
+    border: none;
+}
+.wrapper header #currency #checkCurrency option {
+    color: black
+}
+.wrapper header .header-menu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.wrapper header .header-menu a {
+    font-size: 13px;
+    font-family: openSans;
+    color: white;
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+.wrapper header .header-menu a::after {
+    content: '|';
+    color: white;
+    margin: 0px 14px;
+}
+/* --------------- header finish */
+/* ---------------- nav menu start */ 
+
+nav {
+    height: 107px;
+    width: 100%;
+    padding: 0px 191px;
+    display: flex !important;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+    background-color: white;
+}
+.wrapper .shopName {
+    display: flex;
+    align-items: center;
+    color: #656565;
+    font-size: 36px;
+    font-family: openSansBold;
+    margin-right: 59px;
+    width: 190px;
+}
+nav .menu {
+    display: flex;
+    width: 346px;
+    justify-content: space-between;
+}
+nav .menu a {
+    list-style: none;
+    text-decoration: none;
+    color: #656565;
+    font-size: 14px;
+    font-family: openSansBold;
+}
+nav .search-menu {
+    display: flex;
+    align-items: center;
+    margin-left: 114px;
+}
+nav .search-menu input {
+    margin-top: 15px;
+}
+nav .search-menu input[type='text'] {
+    width: 174px;
+    height: 27px;
+    border: 1px solid #c6c6c6;
+    background-image: url(../img/search.gif);
+    background-repeat: no-repeat;
+    background-position: 150px;
+}
+nav .search-menu input[type='button'] {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    font-family: openSansBold;
+    font-size: 14px;
+}
+nav .search-menu span {
+    font-family: openSansBold;
+    font-size: 14px;
+    margin-left: 6px;
+    color:  #656565;
+}
+nav .search-menu img {
+    height: 35px;
+    width: 35px;
+    margin: 2px;
+}
+nav .search-menu img:first-of-type {
+    margin-left: 14px;
+}
+nav .search-menu img:last-of-type{
+    margin-right: 14px;
+}
+
+/* -----------------nav menu finish */
+
+/* ----------------- section part starts*/
+section {
+    width: 100%;
+    height: 475px;
+    display: flex !important;
+    align-items: center !important;
+    background-image: url(../img/background1.gif);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-position-y: 45%;
+}
+
+section .wrapper {
+    background: rgba(255,255,255,0);
+    display: flex;
+    height: 96px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px;
+    box-sizing: border-box;
+}
+section button {
+    display: block;
+    background: white;
+    height: 68px;
+    width: 68px;
+    border-radius: 50%;
+}
+section .wrapper .container {
+    display: flex;
+    margin: 0px;
+    align-items: center;
+}
+section .wrapper .container button {
+    margin-right: 48px;
+}
+section .wrapper  button { 
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section .wrapper div p {
+    background-color: rgba(0,0,0,0.5);
+    font-size: 30px;
+    color: white;
+    padding: 0px 15px;
+    height: auto;
+    margin: 0px 0px 3px 0px;
+    width: auto;
+}
+section .wrapper div p:first-of-type {
+    font-family: openSansLight;
+    display: inline-block;
+}
+section .wrapper div p:last-of-type {
+    font-family: openSansBold;
+    
+}
+
+/* -------------------- section finished */
+
+/* --------------------- main part starts */
+
+main {
+    display: flex !important;
+    height: 2018px;
+    padding: 48px 188px;
+}
+main #content {
+    width: 788px;
+    margin: 0px !important;
+}
+main #content h2 {
+    font-family: openSans;
+    font-size: 24px;
+    color: #635f57;
+    margin: 0px;
+    padding: 0px;
+}
+main #content .products, .new-products {
+    display: flex;
+    flex-wrap: wrap;
+}
+main #content  .product-wrapper:nth-child(3n) {
+    margin-top: 25px;
+}
+main #content  .product-wrapper {
+    box-shadow: 0px 0px 2px 1px rgba(238,238,238,1);
+    width: 233px;
+    height: 320px;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-right: 28px;
+    margin-top: 25px;
+    position: relative;
+    overflow: hidden;
+}
+main #content .product-wrapper .label-new {
+    position: absolute;
+    height: 30px;
+    width: 200px;
+    background-color: #4cb1ca;
+    top: 10px;
+    right: -70px;
+    transform: rotateZ(45deg);
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #2b9eba;
+}
+main #content  .product-wrapper .label-sale {
+    position: absolute;
+    height: 30px;
+    width: 200px;
+    background-color: #7db122;
+    top: 10px;
+    left: -70px;
+    transform: rotateZ(-45deg);
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #628f13;
+}
+main #content  .product-wrapper .product-img {
+    background-color: #eff1f0;
+    height: 228px;
+    width: 218px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main #content  .product-wrapper .desctiption {
+    height: 58px;
+    width: auto;
+}
+main #content  .product-wrapper .description h2{
+    font-size: 14px;
+    line-height: inherit;
+    color: #464148;
+    font-family: openSans;
+}
+main #content  .product-wrapper .description p {
+    font-size: 18px;
+    color: #7db122;
+    line-height: inherit;
+    display: inline;
+}
+main #content  .product-wrapper .description span {
+    font-size: 14px;
+    color: #464148;
+    line-height: inherit;
+    text-decoration: line-through;
+    display: inline;
+}
+
+main #content  .product-wrapper .description-wrap{
+    display: flex;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+}
+main #content  .product-wrapper .description-wrap img {
+    height: 47px;
+    width: 47px;
+    margin: 0px !important;
+    display: flex;
+    align-self: center;
+}
+main #content  .product-wrapper .description-wrap img:hover {
+    cursor: pointer;
+}
+.staff-pick {
+    margin-bottom: 60px;
+}
+main #content .new-products {
+    display: flex;
+}
+main #content .reverse {
+    flex-direction: row-reverse;
+}
+main #content .new-products .product-wrapper:last-of-type {
+    display: none;
+}
+main #content .new-products .product-wrapper {
+    flex-shrink: 0;
+}
+/* --------------- advertising right side part starts */
+
+#advertising {
+    width: 233px;
+    border-top: 6px solid #4cb1ca;
+    box-sizing: border-box;
+}
+#advertising .advert-container {
+    height: 485px;
+    width: 100%;
+    box-shadow: 0px 0px 2px 1px rgba(238,238,238,1);
+    padding: 13px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#advertising .advert-container .wrapper-first-part {
+    height: 430px;
+    width: 100%;
+    background-image: url("../img/advertising/Layer-35.gif");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#advertising .advert-container .wrapper-first-part .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#advertising .advert-container .wrapper-first-part div p {
+    margin: 0px !important;
+    font-size: 24px;
+    font-family: openSans;
+    line-height: 28px;
+    color: #635f57;
+}
+#advertising .advert-container ul {
+    display: flex;
+    justify-content: center;
+}
+#advertising .advert-container ul li {
+    height: 12px;
+    width: 12px;
+    background-color: #7db122;
+    border-radius: 5px;
+    list-style: none;
+}
+#advertising .advert-container ul li:nth-child(even){
+    margin: 0px 4px 0px 4px !important;
+}
+#advertising .advert-container ul li {
+    margin: 0px;
+}
+#advertising .advert-container .wrapper-first-part button {
+    display: flex;
+    align-self: center;
+    height: 44px;
+    width: 131px;
+    margin: 15px;
+    background-color: #4cb1ca;
+    color: white;
+    justify-content: center;
+}
+#advertising .advert-container .wrapper-first-part button:hover {
+    color: #635f57;
+}
+#advertising .advert-container ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    justify-self: flex-end;
+}
+#advertising .advert-container ul li:hover {
+    background-color: #4cb1ca;
+    cursor: pointer;
+}
+
+/* ---------------------------  advertising right side part ends*/
+
+/* ----------------------footer starts */
+
+.footer-top-side {
+    width: 100%;
+    height: 105px;
+    background-color: #4cb1ca;
+    display: flex !important;
+    padding: 20px 188px 20px 188px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+.footer-top-side> div{
+    display: flex;
+    align-items: center;
+}
+.footer-top-side .img-wrapper{
+    height: 66px;
+    width: 66px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-top-side h2 {
+    font-family: openSans;
+    font-size: 21px;
+    color: white;
+    margin: 0px 0px 0px 20px;
+}
+
+/* footer center  */
+
+.footer-center {
+    height: 335px;
+    width: 100%;
+    background-color: #39a0b9;
+    padding: 45px 188px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-center .left-side {
+    display: flex;
+}
+.footer-center h2 {
+    font-family: openSans;
+    font-size: 20px;
+    color: white;
+
+}
+.footer-center .left-side .facebook-block p {
+    font-size: 13px;
+    font-family: openSansLight;
+    margin: 0px;
+    color: white;
+}
+.footer-center .left-side .facebook-block img {
+    height: 25px;
+    width: 45px;
+}
+.footer-center .left-side .facebook-block h3 {
+    font-family: openSans;
+    font-size: 13px;
+    color: white;
+    margin: 0px;
+}
+.footer-center .left-side .facebook-block .users-img-block {
+    width: 240px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer-center .left-side .facebook-block .users-img-block img {
+    height: 50px;
+    width: 50px;
+    margin: 8px 10px 8px 0px;
+    display: block;
+}
+.footer-center .left-side .twitter-block {
+    width: 265px;
+    padding: 0px 20px;
+    margin: 0px 28px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer-center .left-side .twitter-block .wrap {
+    display: flex;
+}
+.footer-center .left-side .twitter-block .img-wrapper {
+    height: 45px;
+    width: 45px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-center .left-side .twitter-block p {
+    width: 180px;
+    color: white;
+    font-size: 13px;
+    font-family: openSans;
+    margin-left: 12px;
+}
+.footer-center .right-side {
+    display: flex;
+}
+.footer-center .right-side .information-block {
+    width: 260px;
+    padding: 0px 0px 0px 50px;
+}
+.footer-center .right-side .information-block ul li {
+    font-size: 13px;
+    font-family: openSans;
+    color: white;
+    list-style: none;
+}
+.footer-center .right-side .contact-us-block p {
+    margin: 5px;
+    font-size: 13px;
+    font-family: openSans;
+    color: white;
+}
+.footer-center .right-side .contact-us-block .icons-wrap {
+    display: flex;
+}
+.footer-center .right-side .contact-us-block a {
+    display: flex;
+    height: 36px;
+    width: 36px;
+    background-color: white;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    background-color: #0b4b5a;
+    padding: 0px 188px;
+    box-sizing: border-box;
+}
+.footer-bottom > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-bottom p {
+    margin: 0px;
+    color: #78c5d8;
+    font-family: openSans;
+    font-size: 13px;
+}
+.footer-bottom .footer-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+.footer-bottom .footer-menu a {
+    margin: 0px;
+    color: #78c5d8;
+    font-family: openSans;
+    font-size: 13px;
+    text-decoration: none;
+}
+.footer-bottom .footer-menu a::after {
+    content: '|';
+    color: #78c5d8;
+    margin: 0px 12px;
+}
+.footer-bottom .footer-menu a:last-of-type::after {
+    content: '';
+    margin: 0px;
+}
+
+

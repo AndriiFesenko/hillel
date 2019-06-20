@@ -1,0 +1,233 @@
+@media (max-width: 1392px){
+    header, nav, main, .footer-top-side, .footer-center, .footer-bottom {
+        padding-left: 80px !important;
+        padding-right: 80px !important;
+    }
+}
+
+@media (max-width: 1199px){
+    nav {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+    .wrapper .shopName {
+        margin-right: 10px;
+    }
+    nav .search-menu {
+        margin-left: 30px;
+    }
+    section .wrapper {
+        padding: 40px;
+    }
+    main {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+    .product-wrapper {
+        width: 220px !important;
+        height: 290px !important;
+        padding: 5px !important;
+        margin-right: 10px !important;
+        margin-top: 20px !important;
+    }
+
+    .product-img{
+        height: 200px !important;
+        width: 210px !important;
+    }
+    .product-img img {
+        max-width: 200px;
+    }
+    .footer-top-side{
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+    .twitter-block{
+        display: none !important;
+    }
+    .information-block {
+        padding: 0px !important;
+    }
+}
+@media (max-width: 992px){
+    .wrapper{
+        overflow: hidden;
+    }
+    header {
+        align-items: center;
+        position: relative;
+        padding-right: 10px !important;
+        padding-top: 0px !important;
+    }
+    header .header-menu {
+        height: auto !important;
+        padding: 15px;
+        position: absolute;
+        display: none;
+        text-align: center;
+        flex-direction: column;
+        right: -250px;
+        top: 40px;
+        background-color: #4cb1ca;
+        width: 200px;
+        transition: 2s;
+        z-index: 1;
+    }
+    header .header-menu a {
+        width: 100%;
+        color: #000000 !important;
+        font-size: 30px !important;
+    }
+    header .header-menu a:hover{
+        background-color: #656565;
+        color: #4cb1ca !important;
+    }
+    header .header-menu a::after{
+        display: none;
+    }
+    header #site-menu {
+        display: none;
+        margin: 0px;
+    }
+    header .header-menu.show {
+        display: flex;
+        position: absolute;
+        right: 0px;
+    }
+    header .leb-menu{
+        display: block !important;
+    }
+    header .leb-menu label {
+        margin: 5px 0px 0px 0px;
+    }
+    header .leb-menu img {
+        height: 30px;
+        width: 30px
+    }
+    nav .shopName {
+        text-align: center;
+    }
+    nav {
+        position: relative;
+        align-items: flex-start;
+    }
+    nav .menu {
+        margin-top: 20px;
+    }
+    nav .search-menu input[type=text] {
+        margin: 0px;
+        position: absolute;
+        bottom: 15px;
+        left: 40px;
+    }
+    nav .search-menu img:first-of-type{
+        position: absolute;
+        bottom: 10px;
+        left: 290px;
+    }
+    nav .search-menu img:last-of-type{
+        position: absolute;
+        bottom: 10px;
+        left: 345px;
+    }
+    nav .search-menu input[type=button]{
+        position: absolute;
+        bottom: 10px;
+        left: 400px;
+    }
+    nav .search-menu span {
+        position: absolute;
+        bottom: 19px;
+        left: 440px;
+    }
+    section p {
+        font-size: 22px !important;
+    }
+    section button {
+        height: 60px;
+        width: 60px;
+    }
+    main {
+        height: auto;
+        padding-left: 65px !important;
+    }
+    .footer-top-side .img-wrapper{
+        height: 50px;
+        width: 50px;
+    }
+    .footer-top-side h2{
+        font-size: 16px;
+    }
+    .footer-center {
+        padding: 20px 40px !important;
+        justify-content: space-around;
+    }
+    .footer-center .users-img-block {
+        width: 200px !important;
+    }
+    .footer-center .users-img-block img:nth-child(4n) {
+        display: none !important;
+    }
+    .footer-bottom {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .footer-bottom a::after{
+        margin: 0px 5px !important;
+    }
+    @media (max-width: 768px) {
+        header {
+            padding-left: 15px !important;
+        }
+        nav {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+        }
+        nav .shopName {
+            width: 100% !important;
+            display: flex;
+            align-self: flex-start;
+        }
+        nav .menu {
+            display: flex;
+            width: 70% !important;
+        }
+        nav .search-menu {
+            display: flex !important;
+            position: static !important;
+            justify-self: flex-end;
+        }
+
+        nav .search-menu img:first-of-type {
+            display: none;
+        }
+        nav .search-menu img:last-of-type {
+            position: absolute;
+            right: 100px;
+            top: 68px;
+            left: auto !important;
+        }
+        nav .search-menu input:first-of-type {
+            position: absolute !important;
+            right: 20px !important;
+            left: auto ;
+            top: 20px;
+        }
+        nav .search-menu input:last-of-type {
+            position: absolute;
+            bottom: 10px;
+            right: 60px;
+            top: 68px;
+            left: auto;
+        }
+        nav .search-menu span {
+            position: absolute;
+            right: 35px;
+            top: 75px;
+            left: auto;
+        }
+    }
+}

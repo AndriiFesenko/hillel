@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./dist/main.js" async></script>
+    <link rel="stylesheet" href="./src/style/style.css">
+    <link rel="stylesheet" href="./src/style/normalize.css">
+    <link rel="stylesheet" href="./src/style/sceleton.css">
+    <link rel="stylesheet" href="./src//style//media.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            
+            <div class="wrap">
+                <div id="language">
+                    <span>Language:</span>
+                    <select id="checkLanguage">
+                        <option value="">English</option>
+                        <option value="">Ukrainian</option>
+                        <option value="">Russian</option>
+                    </select>
+                </div>
+                <div id="currency">
+                    <span>Currency:</span>
+                    <select id="checkCurrency">
+                        <option value="">USD</option>
+                        <option value="">UAH</option>
+                        <option value="">RUB</option>
+                    </select>
+                </div>
+            </div>
+            <div class="header-menu">
+                <a href="#">Account</a>
+                <a href="#">Wishlist</a>
+                <a href="#">Checkout</a>
+                <a href="#">Log In</a>
+                <a href="#">Sign Up</a>
+            </div>
+            <input type="checkbox" id="site-menu">
+            <div class="leb-menu">
+                <label for="site-menu"><img src="./src/img/menu-icon.png"></label>
+            </div>
+        </header>
+        <nav>
+            <div class="shopName">LEO SHOP</div>
+            <div class="menu">
+                <a href="#">HOME</a>
+                <a href="#">WOMEN</a>
+                <a href="#">MEN</a>
+                <a href="#">OTHER</a>
+                <a href="#">PURCHASE</a>
+            </div>
+            <div class="search-menu">
+                <input type="text" placeholder="Search...">
+                <img src="./src/img/1.gif" alt="img">
+                <img src="./src/img/2.gif" alt="cartImg">
+                <input type="button" id="cart" value="CART">
+                <span>(0)</span>
+            </div>
+        </nav>
+        <section>
+            <div class="wrapper">
+                <div class="container">
+                    <button id="leftButton"><img src="./src/img/left.gif" alt="leftImg"></button>
+                    <div>
+                        <p>ALUMINIUM CLUB</p>
+                        <p>EXPERIENCE RAY-BAN</p>
+                    </div>
+                </div>
+                <button id="rightButton"><img src="./src/img/right.gif" alt="rightImg"></button>
+            </div>
+        </section>
+        <main>
+            <div id="content">
+                <h2>FEATURED PRODUCTS</h2>
+                <div class="products"></div>
+                <div class="staff-pick"></div>
+                <h2>NEW PRODUCTS</h2>
+                <div class="new-products"></div>
+            </div>
+            <div id="advertising"></div>
+        </main>
+        <footer>
+            <div class="footer-top-side">
+                <div>
+                    <div class="img-wrapper">
+                        <img src="./src/img/footer/.gif" alt="shipping">
+                    </div>
+                    <h2>FREE SHIPPING ON ORDERS OVER 100$</h2>
+                </div>
+                <div>
+                    <div class="img-wrapper">
+                        <img src="./src/img/footer/.gif" alt="callUs">
+                    </div>
+                    <h2>CALL US! TOLL FREE 409-8888-00-99</h2>
+                </div>
+            </div>
+            <div class="footer-center">
+                <div class="left-side">
+                    <div class="facebook-block">
+                        <h2>FACEBOOK</h2>
+                        <p>20000 Members</p>
+                        <a href="#"><img src="./src/img/footer/Layer-33.gif" alt="like"></a>
+                        <div class="users-img-block">
+
+                        </div>
+                        <h3>Facebook Social plugin</h3>
+                    </div>
+                    <div class="twitter-block">
+                        <div>
+                            <h2>FROM TWITTER</h2>
+                            <div class="wrap">
+                                <div class="img-wrapper">
+                                    <img src="./src/img/footer/twitter.gif" alt="twitter">
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur ipsum dolor sit amet consectetur adipisicing elit. Ullam, eos.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="wrap">
+                                    <div class="img-wrapper">
+                                        <img src="./src/img/footer/twitter.gif" alt="twitter">
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet ipsum dolor sit amet consectetur consectetur adipisicing elit. Ullam, eos.</p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="information-block">
+                        <h2>INFORMATION</h2>
+                        <ul>
+                            <li>> Lorem ipsum dolor</li>
+                            <li>> sit amet consectetur</li>
+                            <li>> adipisicing elit</li>
+                            <li>> culpa, totam</li>
+                            <li>> dolor sit amet.</li>
+                            <li>> Lorem, ipsum. Lorem lorem</li>
+                        </ul>
+                    </div>
+                    <div class="contact-us-block">
+                        <h2>CONTACT US</h2>
+                        <p>Leo Store</p>
+                        <p>Leopards media</p>
+                        <p>KVM Rpad, 4590GH</p>
+                        <p>+1 489-8888-0099</p>
+                        <p>mail@email.com</p>
+                        <div class="icons-wrap">
+                            <a href="https://www.google.com" target="_blank">
+                                <img src="./src/img/footer/google.gif" alt="google-icon">
+                            </a>
+                            <a href="https://www.linkedin.com/" target="_blank">
+                                <img src="./src/img/footer/linkedin.gif" alt="link-icon">
+                            </a>
+                            <a href="#" target="_blank">
+                                <img src="./src/img/footer/wifi.gif" alt="wifi-icon">
+                            </a>
+                            <a href="https://www.facebook.com/" target="_blank">
+                                <img src="./src/img/footer/fb.gif" alt="fb-icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>
+                    <p>© Copyright 2013 Css Author, ALL Rights Reserved.</p>
+                </div>
+                <div class="footer-menu">
+                    <a href="#">About Us</a>
+                    <a href="#">Delivery & Returns</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
